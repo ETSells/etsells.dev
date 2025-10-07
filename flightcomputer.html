@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Eli Sells | Flight Computer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">etsells.dev</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html#projects" class="active">Projects</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Flight Computer - Sun Devil Rocketry</h1>
+							<span class="image fit"><img src="images/fc.png" alt="" /></span>
+							<h2>About</h2>
+							<p>The flight computer is the main focus of my work with Sun Devil Rocketry. The first two revisions were originally designed by <a href="https://cacost12.github.io/index.html">Colton Acosta</a>, the founder of the avionics team at SDR. In amateur rocketry, there are a number of different types of consumer avionics available. All of these have differing levels of capability, from the simplicity and reliability of <a href="https://altusmetrum.org/EasyMini/">EasyMinis</a> to more advanced, full feature packages like the <a href="https://silicdyne.net/fluctus/">Fluctus</a>. The Sun Devil Rocketry Flight Computer was designed and built in-house to be on the full-feature end of the scale and allow us to customize it for the needs of the club.</p>
+							<h3>Hardware Capabilities</h3>
+							<p>As a full-feature flight computer, this was designed to be as versatile as possible to fill whatever roles the club needs. Among the peripherals supported are:</p>
+							
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Protocol</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>IMU</td>
+										<td>Inertial Measurement Unit: A 6-axis sensor that combines accelerometer and gyroscope data.</td>
+										<td>I<sup>2</sup>C</td>
+									</tr>
+									<tr>
+										<td>Barometer</td>
+										<td>An atmospheric pressure sensor. This can be used to determine the altitude of the flight computer.</td>
+										<td>I<sup>2</sup>C</td>
+									</tr>
+									<tr>
+										<td>GPS</td>
+										<td>Determines the position of the flight computer and provides it via a standardized NMEA message.</td>
+										<td>UART</td>
+									</tr>
+									<tr>
+										<td>USB</td>
+										<td>Communicates with external devices, such as a PC running <a href="sdec.html">SDEC</a>.</td>
+										<td>UART</td>
+									</tr>
+									<tr>
+										<td>Flash</td>
+										<td>Allows non-volatile storage of flight data and preset/configuration settings.</td>
+										<td>SPI</td>
+									</tr>
+									<tr>
+										<td>Ignition Terminals</td>
+										<td>The flight computer has three sets of screw terminals for GPIO. All three can be used to check the continuity of a circuit, and two can output voltage to light an e-match for ejection charges. The continuity-only terminal is used to connect a switch to arm the flight computer for launch.</td>
+										<td>GPIO</td>
+									</tr>
+									<tr>
+										<td>Servo</td>
+										<td>There are four PWM servo ports on the flight computer. These are used to change fin angles in flight for active stabilization.</td>
+										<td>GPIO (PWM)</td>
+									</tr>
+									<tr>
+										<td>LED</td>
+										<td>The status LED communicates information about the current state of the flight computer (e.g. red for error handling, other colors to indicate calibration, USB terminal, armed, etc.).</td>
+										<td>GPIO</td>
+									</tr>
+									<tr>
+										<td>Buzzer</td>
+										<td>The (active) buzzer communicates information about state transitions. Certain sequences indicate error handling, arming, calibration, etc.</td>
+										<td>GPIO</td>
+									</tr>
+									<tr>
+										<td>LoRa</td>
+										<td>A long range radio antenna. This is currently in development by our team.</td>
+										<td>SPI</td>
+									</tr>
+									<tr>
+										<td>Magnetometer</td>
+										<td>Measures the magnitude and direction of the earth's magnetic field, which is useful for sensor fusion. Not currently in use, but the PCB was designed and built with this sensor.</td>
+										<td>I<sup>2</sup>C</td>
+									</tr>
+									<tr>
+										<td>SD</td>
+										<td>Allows saving files to a FatFS formatted SD card. Not currently in use as flash memory provides the storage we need.</td>
+										<td>SD Bus</td>
+									</tr>
+								</tbody>
+							</table>
+							
+							<h3>Software/Firmware Capabilities</h3>
+							<p><span class="image right"><img src="images/cfgs.png" alt="" /></span>Our current software application combines the capabilities of all of those that came before it. It is capable of high-speed data logging with active control, parachute deployment, and wireless telemetry in development to be released in the near future.</p><p>It also comes with a robust configuration system allowing it to be customized to each internal program's needs. Pictured is a subset of the configuration selections for AHPR's Nautilus two-stage, which launched with the SDR flight computer in its booster in October 2025.</p>
+
+							<h2>My Contributions</h2>
+							<p>I started with the Avionics team in Fall 2024, so I've been working with the team for just over a year at the time of writing. In that time, I've had the chance to contribute to a bunch of different features on the flight computer.</p>
+							<h3>Avionics Developer | September 2024 - March 2025</h3>
+							<div class="col-6 col-12-medium">
+								<ul class="alt">
+									<li>Designed and implemented a finite state machine for the active roll application, which was in early development at the time.</li>
+									<li>Updated application-level flash memory module to support the storage of preset data (pre-calibrated offsets and servo angles).</li>
+									<li>Implemented a basic unit test framework to verify the GPS driver.</li>
+								</ul>
+							</div>
+							<p>In March, the avionics team re-structured to include multiple subteams rather than one disorganized unit. Because of my work as a generalist throughout the Flight Computer project, I was picked to be the first lead of the Firmware subteam.</p>
+							<h3>Avionics Firmware Lead | March 2025 - Present</h3>
+							<div class="col-6 col-12-medium">
+								<ul class="alt">
+									<li>Led an organized effort to verify the Data-Logger and Canard firmware applications to certify them for use in the April 2025 launches.</li>
+									<li>Designed and led a team to build a new unified application to combine all of the previous capabilities of the flight computer under one app.</li>
+									<li>Instituted new software quality assurance practices based on my experience in the industry to increase reliability and maintainability.</li>
+									<li>Identified performance improvements that led to an over 30x speedup (7hz to over 300hz) in execution speed, significantly increasing data integrity and control responsiveness to the level of commercial flight computers.</li>
+								</ul>
+							</div>
+							<div class="col-12"><span class="image fit"><img src="images/amraam.jpg" alt="" /></span></div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li><!--&copy;--><a href="https://www.etsells.dev">etsells.dev</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

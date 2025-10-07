@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Eli Sells | Flight Computer</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">etsells.dev</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="index.html#projects" class="active">Projects</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">Flight Computer - Sun Devil Rocketry</h1>
+							<span class="image fit"><img src="images/fc.png" alt="" /></span>
+							<h2>About</h2>
+							<p>The flight computer is the main focus of my work with Sun Devil Rocketry. The first two revisions were originally designed by <a href="https://cacost12.github.io/index.html">Colton Acosta</a>, the founder of the avionics team at SDR. In amateur rocketry, there are a number of different types of consumer avionics available. All of these have differing levels of capability, from the simplicity and reliability of <a href="https://altusmetrum.org/EasyMini/">EasyMinis</a> to more advanced, full feature packages like the <a href="https://silicdyne.net/fluctus/">Fluctus</a>. The Sun Devil Rocketry Flight Computer was designed and built in-house to be on the full-feature end of the scale and allow us to customize it for the needs of the club.</p>
+							<h3>Capabilities</h3>
+							<p>As a full-feature flight computer, this was designed to be as versatile as possible to fill whatever roles the club needs. Among the peripherals supported are:</p>
+							
+							<table>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Description</th>
+										<th>Protocol</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>IMU</td>
+										<td>Inertial Measurement Unit: A 6-axis sensor that combines accelerometer and gyroscope data.</td>
+										<td>I<sup>2</sup>C</td>
+									</tr>
+									<tr>
+										<td>Barometer</td>
+										<td>An atmospheric pressure sensor. This can be used to determine the altitude of the flight computer.</td>
+										<td>I<sup>2</sup>C</td>
+									</tr>
+									<tr>
+										<td>GPS</td>
+										<td>Determines the position of the flight computer and provides it via a standardized NMEA message.</td>
+										<td>UART</td>
+									</tr>
+									<tr>
+										<td>USB</td>
+										<td>Communicates with external devices, such as a PC running <a href="sdec.html">SDEC</a>.</td>
+										<td>UART</td>
+									</tr>
+									<tr>
+										<td>Flash</td>
+										<td>Allows non-volatile storage of flight data and preset/configuration settings.</td>
+										<td>SPI</td>
+									</tr>
+									<tr>
+										<td>Magnetometer</td>
+										<td>Measures the magnitude and direction of the earth's magnetic field, which is useful for sensor fusion. Not currently in use, but the PCB was designed and built with this sensor.</td>
+										<td>I<sup>2</sup>C</td>
+									</tr>
+									<tr>
+										<td>SD</td>
+										<td>Allows saving files to a FatFS formatted SD card. Not currently in use as flash memory provides the storage we need.</td>
+										<td>SD Bus</td>
+									</tr>
+								</tbody>
+								<tfoot>
+									<tr>
+										<td colspan="2"></td>
+										<td>100.00</td>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li><!--&copy;--><a href="https://www.etsells.dev">etsells.dev</a></li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
