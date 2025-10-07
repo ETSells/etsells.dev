@@ -31,65 +31,81 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner">
-							<h1 class="major">Flight Computer - Sun Devil Rocketry</h1>
-							<span class="image fit"><img src="images/fc.png" alt="" /></span>
+							<h1 class="major">SDEC - Sun Devil Rocketry</h1>
+							<span class="image fit"><img src="images/sdec.png" alt="" /></span>
+							<h4>Before reading this page, I highly recommend reading about the <a href="flightcomputer.html">Flight Computer</a>.</h4>
+							<p></p>
 							<h2>About</h2>
-							<p>The flight computer is the main focus of my work with Sun Devil Rocketry. The first two revisions were originally designed by <a href="https://cacost12.github.io/index.html">Colton Acosta</a>, the founder of the avionics team at SDR. In amateur rocketry, there are a number of different types of consumer avionics available. All of these have differing levels of capability, from the simplicity and reliability of <a href="https://altusmetrum.org/EasyMini/">EasyMinis</a> to more advanced, full feature packages like the <a href="https://silicdyne.net/fluctus/">Fluctus</a>. The Sun Devil Rocketry Flight Computer was designed and built in-house to be on the full-feature end of the scale and allow us to customize it for the needs of the club.</p>
 							<h3>Capabilities</h3>
-							<p>As a full-feature flight computer, this was designed to be as versatile as possible to fill whatever roles the club needs. Among the peripherals supported are:</p>
+							<p>SDEC is our primary way of communicating with SDR's embedded computers. It is a command line interface written in Python that provides a number of commands to interact with our hardware over USB. Below is a non-exhaustive list of some of our most important commands.</p>
 							
 							<table>
 								<thead>
 									<tr>
-										<th>Name</th>
+										<th>Command</th>
+										<th>Subcommand</th>
 										<th>Description</th>
-										<th>Protocol</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td>IMU</td>
-										<td>Inertial Measurement Unit: A 6-axis sensor that combines accelerometer and gyroscope data.</td>
-										<td>I<sup>2</sup>C</td>
+										<td>Connect</td>
+										<td>[none]</td>
+										<td>Manages a serial connection with the attached board.</td>
 									</tr>
 									<tr>
-										<td>Barometer</td>
-										<td>An atmospheric pressure sensor. This can be used to determine the altitude of the flight computer.</td>
-										<td>I<sup>2</sup>C</td>
+										<td>Comports</td>
+										<td>[none]</td>
+										<td>List the serial ports on your PC to identify where the hardware is connected.</td>
 									</tr>
 									<tr>
-										<td>GPS</td>
-										<td>Determines the position of the flight computer and provides it via a standardized NMEA message.</td>
-										<td>UART</td>
+										<td>Preset</td>
+										<td>Upload</td>
+										<td>Parse a preset data file, serialize the contents, and pass it to the flight computer to be used in flight. Computes a checksum for data validity.</td>
 									</tr>
 									<tr>
-										<td>USB</td>
-										<td>Communicates with external devices, such as a PC running <a href="sdec.html">SDEC</a>.</td>
-										<td>UART</td>
+										<td>Preset</td>
+										<td>Download</td>
+										<td>Download the presets that are currently on the flight computer, deserialize the contents, and write it to a file.</td>
+									</tr>
+									<tr>
+										<td>Preset</td>
+										<td>Verify</td>
+										<td>Tell the flight computer to recompute the checksum over the presets, compare it to the original, and send the result.</td>
 									</tr>
 									<tr>
 										<td>Flash</td>
-										<td>Allows non-volatile storage of flight data and preset/configuration settings.</td>
-										<td>SPI</td>
+										<td>Erase</td>
+										<td>Clear the entirety of flash.</td>
 									</tr>
 									<tr>
-										<td>Magnetometer</td>
-										<td>Measures the magnitude and direction of the earth's magnetic field, which is useful for sensor fusion. Not currently in use, but the PCB was designed and built with this sensor.</td>
-										<td>I<sup>2</sup>C</td>
+										<td>Flash</td>
+										<td>Extract</td>
+										<td>Download the contents of flash memory, including preset data (if applicable) and sensor data.</td>
 									</tr>
 									<tr>
-										<td>SD</td>
-										<td>Allows saving files to a FatFS formatted SD card. Not currently in use as flash memory provides the storage we need.</td>
-										<td>SD Bus</td>
+										<td>Sensor</td>
+										<td>Poll</td>
+										<td>Check specific sensor values and log them to console continuously.</td>
+									</tr>
+									<tr>
+										<td>Sensor</td>
+										<td>Dump</td>
+										<td>Output all sensor values to console continuously. Used extensively in the <a href="https://github.com/SunDevilRocketry/Flight-Software-GUI">Flight Dashboard</a>, which is in development by the software team.</td>
 									</tr>
 								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="2"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
 							</table>
+
+							<h2>My Contributions</h2>
+							<p>The development of SDEC is tightly coupled with the flight computer's firmware. If we add a sensor, we need to update SDEC at the same time to recognize the difference in the schema. Because of this, even though the firmware is my main focus, I've done a fair amount of work on SDEC.</p>
+							<div class="col-6 col-12-medium">
+								<ul class="alt">
+									<li>Developed a feature to parse preset data on both the original Canard application and now for our most recent app's more comprehensive config system.</li>
+									<li>Designed and built a system to upload configuration data instead of needing to change source code.</li>
+									<li>Updated the flash parser to let programs decide what data they want to log in flight, increasing practical runtime.</li>
+									<li>Fixed a longtime bug where flash extract would hang while parsing due to flight computer timeouts and a non-empty serial buffer.</li>
+								</ul>
+							</div>
 						</div>
 					</section>
 
